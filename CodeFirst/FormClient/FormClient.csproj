@@ -70,6 +70,9 @@
     <Compile Include="FormSours.Designer.cs">
       <DependentUpon>FormSours.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\Department.cs" />
+    <Compile Include="Items\Employee.cs" />
+    <Compile Include="Items\ID.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DepartmentAddC.resx">
@@ -90,10 +93,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Connected Services\localhost\FormClient.localhost.GetResponse.datasource">
+    <None Include="Connected Services\localhost\FormClient.localhost.ArrayOfAnyType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\localhost\FormClient.localhost.GetSoursResponse.datasource">
+    <None Include="Connected Services\localhost\FormClient.localhost.Department.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetDepAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetEmpAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetFormDAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetFormEAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetFormELoadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetSoursDepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\localhost\FormClient.localhost.GetSoursEmpResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\localhost\FormClient.localhost.HelloWorldResponse.datasource">

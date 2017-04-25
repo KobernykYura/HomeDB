@@ -1,4 +1,5 @@
 ﻿using System;
+using FormClient.localhost;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,19 @@ namespace FormClient
 {
     public partial class DepartmentAddC : Form
     {
+        public Department depar;
+        localhost.WebServiceAccessSoapClient cl;
+
         public DepartmentAddC()
         {
             InitializeComponent();
+            cl = new WebServiceAccessSoapClient();
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            FormDAdd(textBoxDNmae);
+            var depName = textBoxDNmae.Text.Trim();
+            cl.GetFormDAdd(depName);
             DialogResult = DialogResult.OK;
             Close();
         }

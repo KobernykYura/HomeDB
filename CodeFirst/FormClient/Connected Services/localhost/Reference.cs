@@ -9,7 +9,169 @@
 //------------------------------------------------------------------------------
 
 namespace FormClient.localhost {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfAnyType", Namespace="http://tempuri.org/", ItemName="anyType")]
+    [System.SerializableAttribute()]
+    public class ArrayOfAnyType : System.Collections.Generic.List<object> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ID", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Department))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Employee))]
+    public partial class ID : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Department", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Department : FormClient.localhost.ID {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Employee : FormClient.localhost.ID {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        private decimal SalaryField;
+        
+        private int AgeField;
+        
+        private System.Nullable<int> DepartmentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FormClient.localhost.Department DepartmentField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public decimal Salary {
+            get {
+                return this.SalaryField;
+            }
+            set {
+                if ((this.SalaryField.Equals(value) != true)) {
+                    this.SalaryField = value;
+                    this.RaisePropertyChanged("Salary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public System.Nullable<int> DepartmentId {
+            get {
+                return this.DepartmentIdField;
+            }
+            set {
+                if ((this.DepartmentIdField.Equals(value) != true)) {
+                    this.DepartmentIdField = value;
+                    this.RaisePropertyChanged("DepartmentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public FormClient.localhost.Department Department {
+            get {
+                return this.DepartmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
+                    this.DepartmentField = value;
+                    this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="localhost.WebServiceAccessSoap")]
@@ -22,19 +184,54 @@ namespace FormClient.localhost {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
         System.Threading.Tasks.Task<FormClient.localhost.HelloWorldResponse> HelloWorldAsync(FormClient.localhost.HelloWorldRequest request);
         
-        // CODEGEN: Контракт генерации сообщений с именем GetSoursResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSours", ReplyAction="*")]
-        FormClient.localhost.GetSoursResponse GetSours(FormClient.localhost.GetSoursRequest request);
+        // CODEGEN: Контракт генерации сообщений с именем GetSoursEmpResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoursEmp", ReplyAction="*")]
+        FormClient.localhost.GetSoursEmpResponse GetSoursEmp(FormClient.localhost.GetSoursEmpRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSours", ReplyAction="*")]
-        System.Threading.Tasks.Task<FormClient.localhost.GetSoursResponse> GetSoursAsync(FormClient.localhost.GetSoursRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoursEmp", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetSoursEmpResponse> GetSoursEmpAsync(FormClient.localhost.GetSoursEmpRequest request);
         
-        // CODEGEN: Контракт генерации сообщений с именем GetResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get", ReplyAction="*")]
-        FormClient.localhost.GetResponse Get(FormClient.localhost.GetRequest request);
+        // CODEGEN: Контракт генерации сообщений с именем GetSoursDepResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoursDep", ReplyAction="*")]
+        FormClient.localhost.GetSoursDepResponse GetSoursDep(FormClient.localhost.GetSoursDepRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get", ReplyAction="*")]
-        System.Threading.Tasks.Task<FormClient.localhost.GetResponse> GetAsync(FormClient.localhost.GetRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSoursDep", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetSoursDepResponse> GetSoursDepAsync(FormClient.localhost.GetSoursDepRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем e из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmpAdd", ReplyAction="*")]
+        FormClient.localhost.GetEmpAddResponse GetEmpAdd(FormClient.localhost.GetEmpAddRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEmpAdd", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetEmpAddResponse> GetEmpAddAsync(FormClient.localhost.GetEmpAddRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем d из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDepAdd", ReplyAction="*")]
+        FormClient.localhost.GetDepAddResponse GetDepAdd(FormClient.localhost.GetDepAddRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDepAdd", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetDepAddResponse> GetDepAddAsync(FormClient.localhost.GetDepAddRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем depName из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormDAdd", ReplyAction="*")]
+        FormClient.localhost.GetFormDAddResponse GetFormDAdd(FormClient.localhost.GetFormDAddRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormDAdd", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormDAddResponse> GetFormDAddAsync(FormClient.localhost.GetFormDAddRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем GetFormELoadResult из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormELoad", ReplyAction="*")]
+        FormClient.localhost.GetFormELoadResponse GetFormELoad(FormClient.localhost.GetFormELoadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormELoad", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormELoadResponse> GetFormELoadAsync(FormClient.localhost.GetFormELoadRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с именем nameE из пространства имен http://tempuri.org/ не отмечен как обнуляемый
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormEAdd", ReplyAction="*")]
+        FormClient.localhost.GetFormEAddResponse GetFormEAdd(FormClient.localhost.GetFormEAddRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFormEAdd", ReplyAction="*")]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormEAddResponse> GetFormEAddAsync(FormClient.localhost.GetFormEAddRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -102,15 +299,15 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetSoursRequest {
+    public partial class GetSoursEmpRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSours", Namespace="http://tempuri.org/", Order=0)]
-        public FormClient.localhost.GetSoursRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSoursEmp", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetSoursEmpRequestBody Body;
         
-        public GetSoursRequest() {
+        public GetSoursEmpRequest() {
         }
         
-        public GetSoursRequest(FormClient.localhost.GetSoursRequestBody Body) {
+        public GetSoursEmpRequest(FormClient.localhost.GetSoursEmpRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -119,9 +316,9 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetSoursRequestBody {
+    public partial class GetSoursEmpRequestBody {
         
-        public GetSoursRequestBody() {
+        public GetSoursEmpRequestBody() {
         }
     }
     
@@ -129,15 +326,15 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetSoursResponse {
+    public partial class GetSoursEmpResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSoursResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FormClient.localhost.GetSoursResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSoursEmpResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetSoursEmpResponseBody Body;
         
-        public GetSoursResponse() {
+        public GetSoursEmpResponse() {
         }
         
-        public GetSoursResponse(FormClient.localhost.GetSoursResponseBody Body) {
+        public GetSoursEmpResponse(FormClient.localhost.GetSoursEmpResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -146,16 +343,16 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetSoursResponseBody {
+    public partial class GetSoursEmpResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string GetSoursResult;
+        public FormClient.localhost.ArrayOfAnyType GetSoursEmpResult;
         
-        public GetSoursResponseBody() {
+        public GetSoursEmpResponseBody() {
         }
         
-        public GetSoursResponseBody(string GetSoursResult) {
-            this.GetSoursResult = GetSoursResult;
+        public GetSoursEmpResponseBody(FormClient.localhost.ArrayOfAnyType GetSoursEmpResult) {
+            this.GetSoursEmpResult = GetSoursEmpResult;
         }
     }
     
@@ -163,15 +360,15 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetRequest {
+    public partial class GetSoursDepRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Get", Namespace="http://tempuri.org/", Order=0)]
-        public FormClient.localhost.GetRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSoursDep", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetSoursDepRequestBody Body;
         
-        public GetRequest() {
+        public GetSoursDepRequest() {
         }
         
-        public GetRequest(FormClient.localhost.GetRequestBody Body) {
+        public GetSoursDepRequest(FormClient.localhost.GetSoursDepRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -180,9 +377,9 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetRequestBody {
+    public partial class GetSoursDepRequestBody {
         
-        public GetRequestBody() {
+        public GetSoursDepRequestBody() {
         }
     }
     
@@ -190,15 +387,15 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetResponse {
+    public partial class GetSoursDepResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FormClient.localhost.GetResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSoursDepResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetSoursDepResponseBody Body;
         
-        public GetResponse() {
+        public GetSoursDepResponse() {
         }
         
-        public GetResponse(FormClient.localhost.GetResponseBody Body) {
+        public GetSoursDepResponse(FormClient.localhost.GetSoursDepResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -207,16 +404,333 @@ namespace FormClient.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetResponseBody {
+    public partial class GetSoursDepResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string GetResult;
+        public FormClient.localhost.ArrayOfAnyType GetSoursDepResult;
         
-        public GetResponseBody() {
+        public GetSoursDepResponseBody() {
         }
         
-        public GetResponseBody(string GetResult) {
-            this.GetResult = GetResult;
+        public GetSoursDepResponseBody(FormClient.localhost.ArrayOfAnyType GetSoursDepResult) {
+            this.GetSoursDepResult = GetSoursDepResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmpAddRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmpAdd", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetEmpAddRequestBody Body;
+        
+        public GetEmpAddRequest() {
+        }
+        
+        public GetEmpAddRequest(FormClient.localhost.GetEmpAddRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetEmpAddRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FormClient.localhost.Employee e;
+        
+        public GetEmpAddRequestBody() {
+        }
+        
+        public GetEmpAddRequestBody(FormClient.localhost.Employee e) {
+            this.e = e;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmpAddResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmpAddResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetEmpAddResponseBody Body;
+        
+        public GetEmpAddResponse() {
+        }
+        
+        public GetEmpAddResponse(FormClient.localhost.GetEmpAddResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetEmpAddResponseBody {
+        
+        public GetEmpAddResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDepAddRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDepAdd", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetDepAddRequestBody Body;
+        
+        public GetDepAddRequest() {
+        }
+        
+        public GetDepAddRequest(FormClient.localhost.GetDepAddRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDepAddRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FormClient.localhost.Department d;
+        
+        public GetDepAddRequestBody() {
+        }
+        
+        public GetDepAddRequestBody(FormClient.localhost.Department d) {
+            this.d = d;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDepAddResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDepAddResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetDepAddResponseBody Body;
+        
+        public GetDepAddResponse() {
+        }
+        
+        public GetDepAddResponse(FormClient.localhost.GetDepAddResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDepAddResponseBody {
+        
+        public GetDepAddResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormDAddRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormDAdd", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormDAddRequestBody Body;
+        
+        public GetFormDAddRequest() {
+        }
+        
+        public GetFormDAddRequest(FormClient.localhost.GetFormDAddRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetFormDAddRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string depName;
+        
+        public GetFormDAddRequestBody() {
+        }
+        
+        public GetFormDAddRequestBody(string depName) {
+            this.depName = depName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormDAddResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormDAddResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormDAddResponseBody Body;
+        
+        public GetFormDAddResponse() {
+        }
+        
+        public GetFormDAddResponse(FormClient.localhost.GetFormDAddResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetFormDAddResponseBody {
+        
+        public GetFormDAddResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormELoadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormELoad", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormELoadRequestBody Body;
+        
+        public GetFormELoadRequest() {
+        }
+        
+        public GetFormELoadRequest(FormClient.localhost.GetFormELoadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetFormELoadRequestBody {
+        
+        public GetFormELoadRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormELoadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormELoadResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormELoadResponseBody Body;
+        
+        public GetFormELoadResponse() {
+        }
+        
+        public GetFormELoadResponse(FormClient.localhost.GetFormELoadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetFormELoadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FormClient.localhost.Department[] GetFormELoadResult;
+        
+        public GetFormELoadResponseBody() {
+        }
+        
+        public GetFormELoadResponseBody(FormClient.localhost.Department[] GetFormELoadResult) {
+            this.GetFormELoadResult = GetFormELoadResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormEAddRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormEAdd", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormEAddRequestBody Body;
+        
+        public GetFormEAddRequest() {
+        }
+        
+        public GetFormEAddRequest(FormClient.localhost.GetFormEAddRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetFormEAddRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nameE;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string ageE;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string salaryE;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int comboBoxDepID;
+        
+        public GetFormEAddRequestBody() {
+        }
+        
+        public GetFormEAddRequestBody(string nameE, string ageE, string salaryE, int comboBoxDepID) {
+            this.nameE = nameE;
+            this.ageE = ageE;
+            this.salaryE = salaryE;
+            this.comboBoxDepID = comboBoxDepID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetFormEAddResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetFormEAddResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FormClient.localhost.GetFormEAddResponseBody Body;
+        
+        public GetFormEAddResponse() {
+        }
+        
+        public GetFormEAddResponse(FormClient.localhost.GetFormEAddResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetFormEAddResponseBody {
+        
+        public GetFormEAddResponseBody() {
         }
     }
     
@@ -271,49 +785,174 @@ namespace FormClient.localhost {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FormClient.localhost.GetSoursResponse FormClient.localhost.WebServiceAccessSoap.GetSours(FormClient.localhost.GetSoursRequest request) {
-            return base.Channel.GetSours(request);
+        FormClient.localhost.GetSoursEmpResponse FormClient.localhost.WebServiceAccessSoap.GetSoursEmp(FormClient.localhost.GetSoursEmpRequest request) {
+            return base.Channel.GetSoursEmp(request);
         }
         
-        public string GetSours() {
-            FormClient.localhost.GetSoursRequest inValue = new FormClient.localhost.GetSoursRequest();
-            inValue.Body = new FormClient.localhost.GetSoursRequestBody();
-            FormClient.localhost.GetSoursResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSours(inValue);
-            return retVal.Body.GetSoursResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FormClient.localhost.GetSoursResponse> FormClient.localhost.WebServiceAccessSoap.GetSoursAsync(FormClient.localhost.GetSoursRequest request) {
-            return base.Channel.GetSoursAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<FormClient.localhost.GetSoursResponse> GetSoursAsync() {
-            FormClient.localhost.GetSoursRequest inValue = new FormClient.localhost.GetSoursRequest();
-            inValue.Body = new FormClient.localhost.GetSoursRequestBody();
-            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursAsync(inValue);
+        public FormClient.localhost.ArrayOfAnyType GetSoursEmp() {
+            FormClient.localhost.GetSoursEmpRequest inValue = new FormClient.localhost.GetSoursEmpRequest();
+            inValue.Body = new FormClient.localhost.GetSoursEmpRequestBody();
+            FormClient.localhost.GetSoursEmpResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursEmp(inValue);
+            return retVal.Body.GetSoursEmpResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FormClient.localhost.GetResponse FormClient.localhost.WebServiceAccessSoap.Get(FormClient.localhost.GetRequest request) {
-            return base.Channel.Get(request);
+        System.Threading.Tasks.Task<FormClient.localhost.GetSoursEmpResponse> FormClient.localhost.WebServiceAccessSoap.GetSoursEmpAsync(FormClient.localhost.GetSoursEmpRequest request) {
+            return base.Channel.GetSoursEmpAsync(request);
         }
         
-        public string Get() {
-            FormClient.localhost.GetRequest inValue = new FormClient.localhost.GetRequest();
-            inValue.Body = new FormClient.localhost.GetRequestBody();
-            FormClient.localhost.GetResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).Get(inValue);
-            return retVal.Body.GetResult;
+        public System.Threading.Tasks.Task<FormClient.localhost.GetSoursEmpResponse> GetSoursEmpAsync() {
+            FormClient.localhost.GetSoursEmpRequest inValue = new FormClient.localhost.GetSoursEmpRequest();
+            inValue.Body = new FormClient.localhost.GetSoursEmpRequestBody();
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursEmpAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FormClient.localhost.GetResponse> FormClient.localhost.WebServiceAccessSoap.GetAsync(FormClient.localhost.GetRequest request) {
-            return base.Channel.GetAsync(request);
+        FormClient.localhost.GetSoursDepResponse FormClient.localhost.WebServiceAccessSoap.GetSoursDep(FormClient.localhost.GetSoursDepRequest request) {
+            return base.Channel.GetSoursDep(request);
         }
         
-        public System.Threading.Tasks.Task<FormClient.localhost.GetResponse> GetAsync() {
-            FormClient.localhost.GetRequest inValue = new FormClient.localhost.GetRequest();
-            inValue.Body = new FormClient.localhost.GetRequestBody();
-            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetAsync(inValue);
+        public FormClient.localhost.ArrayOfAnyType GetSoursDep() {
+            FormClient.localhost.GetSoursDepRequest inValue = new FormClient.localhost.GetSoursDepRequest();
+            inValue.Body = new FormClient.localhost.GetSoursDepRequestBody();
+            FormClient.localhost.GetSoursDepResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursDep(inValue);
+            return retVal.Body.GetSoursDepResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetSoursDepResponse> FormClient.localhost.WebServiceAccessSoap.GetSoursDepAsync(FormClient.localhost.GetSoursDepRequest request) {
+            return base.Channel.GetSoursDepAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetSoursDepResponse> GetSoursDepAsync() {
+            FormClient.localhost.GetSoursDepRequest inValue = new FormClient.localhost.GetSoursDepRequest();
+            inValue.Body = new FormClient.localhost.GetSoursDepRequestBody();
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursDepAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FormClient.localhost.GetEmpAddResponse FormClient.localhost.WebServiceAccessSoap.GetEmpAdd(FormClient.localhost.GetEmpAddRequest request) {
+            return base.Channel.GetEmpAdd(request);
+        }
+        
+        public void GetEmpAdd(FormClient.localhost.Employee e) {
+            FormClient.localhost.GetEmpAddRequest inValue = new FormClient.localhost.GetEmpAddRequest();
+            inValue.Body = new FormClient.localhost.GetEmpAddRequestBody();
+            inValue.Body.e = e;
+            FormClient.localhost.GetEmpAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetEmpAdd(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetEmpAddResponse> FormClient.localhost.WebServiceAccessSoap.GetEmpAddAsync(FormClient.localhost.GetEmpAddRequest request) {
+            return base.Channel.GetEmpAddAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetEmpAddResponse> GetEmpAddAsync(FormClient.localhost.Employee e) {
+            FormClient.localhost.GetEmpAddRequest inValue = new FormClient.localhost.GetEmpAddRequest();
+            inValue.Body = new FormClient.localhost.GetEmpAddRequestBody();
+            inValue.Body.e = e;
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetEmpAddAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FormClient.localhost.GetDepAddResponse FormClient.localhost.WebServiceAccessSoap.GetDepAdd(FormClient.localhost.GetDepAddRequest request) {
+            return base.Channel.GetDepAdd(request);
+        }
+        
+        public void GetDepAdd(FormClient.localhost.Department d) {
+            FormClient.localhost.GetDepAddRequest inValue = new FormClient.localhost.GetDepAddRequest();
+            inValue.Body = new FormClient.localhost.GetDepAddRequestBody();
+            inValue.Body.d = d;
+            FormClient.localhost.GetDepAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetDepAdd(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetDepAddResponse> FormClient.localhost.WebServiceAccessSoap.GetDepAddAsync(FormClient.localhost.GetDepAddRequest request) {
+            return base.Channel.GetDepAddAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetDepAddResponse> GetDepAddAsync(FormClient.localhost.Department d) {
+            FormClient.localhost.GetDepAddRequest inValue = new FormClient.localhost.GetDepAddRequest();
+            inValue.Body = new FormClient.localhost.GetDepAddRequestBody();
+            inValue.Body.d = d;
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetDepAddAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FormClient.localhost.GetFormDAddResponse FormClient.localhost.WebServiceAccessSoap.GetFormDAdd(FormClient.localhost.GetFormDAddRequest request) {
+            return base.Channel.GetFormDAdd(request);
+        }
+        
+        public void GetFormDAdd(string depName) {
+            FormClient.localhost.GetFormDAddRequest inValue = new FormClient.localhost.GetFormDAddRequest();
+            inValue.Body = new FormClient.localhost.GetFormDAddRequestBody();
+            inValue.Body.depName = depName;
+            FormClient.localhost.GetFormDAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormDAdd(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormDAddResponse> FormClient.localhost.WebServiceAccessSoap.GetFormDAddAsync(FormClient.localhost.GetFormDAddRequest request) {
+            return base.Channel.GetFormDAddAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetFormDAddResponse> GetFormDAddAsync(string depName) {
+            FormClient.localhost.GetFormDAddRequest inValue = new FormClient.localhost.GetFormDAddRequest();
+            inValue.Body = new FormClient.localhost.GetFormDAddRequestBody();
+            inValue.Body.depName = depName;
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormDAddAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FormClient.localhost.GetFormELoadResponse FormClient.localhost.WebServiceAccessSoap.GetFormELoad(FormClient.localhost.GetFormELoadRequest request) {
+            return base.Channel.GetFormELoad(request);
+        }
+        
+        public FormClient.localhost.Department[] GetFormELoad() {
+            FormClient.localhost.GetFormELoadRequest inValue = new FormClient.localhost.GetFormELoadRequest();
+            inValue.Body = new FormClient.localhost.GetFormELoadRequestBody();
+            FormClient.localhost.GetFormELoadResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormELoad(inValue);
+            return retVal.Body.GetFormELoadResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormELoadResponse> FormClient.localhost.WebServiceAccessSoap.GetFormELoadAsync(FormClient.localhost.GetFormELoadRequest request) {
+            return base.Channel.GetFormELoadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetFormELoadResponse> GetFormELoadAsync() {
+            FormClient.localhost.GetFormELoadRequest inValue = new FormClient.localhost.GetFormELoadRequest();
+            inValue.Body = new FormClient.localhost.GetFormELoadRequestBody();
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormELoadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FormClient.localhost.GetFormEAddResponse FormClient.localhost.WebServiceAccessSoap.GetFormEAdd(FormClient.localhost.GetFormEAddRequest request) {
+            return base.Channel.GetFormEAdd(request);
+        }
+        
+        public void GetFormEAdd(string nameE, string ageE, string salaryE, int comboBoxDepID) {
+            FormClient.localhost.GetFormEAddRequest inValue = new FormClient.localhost.GetFormEAddRequest();
+            inValue.Body = new FormClient.localhost.GetFormEAddRequestBody();
+            inValue.Body.nameE = nameE;
+            inValue.Body.ageE = ageE;
+            inValue.Body.salaryE = salaryE;
+            inValue.Body.comboBoxDepID = comboBoxDepID;
+            FormClient.localhost.GetFormEAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormEAdd(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FormClient.localhost.GetFormEAddResponse> FormClient.localhost.WebServiceAccessSoap.GetFormEAddAsync(FormClient.localhost.GetFormEAddRequest request) {
+            return base.Channel.GetFormEAddAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FormClient.localhost.GetFormEAddResponse> GetFormEAddAsync(string nameE, string ageE, string salaryE, int comboBoxDepID) {
+            FormClient.localhost.GetFormEAddRequest inValue = new FormClient.localhost.GetFormEAddRequest();
+            inValue.Body = new FormClient.localhost.GetFormEAddRequestBody();
+            inValue.Body.nameE = nameE;
+            inValue.Body.ageE = ageE;
+            inValue.Body.salaryE = salaryE;
+            inValue.Body.comboBoxDepID = comboBoxDepID;
+            return ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormEAddAsync(inValue);
         }
     }
 }

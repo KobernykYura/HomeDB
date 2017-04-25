@@ -12,25 +12,115 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetSours">
+      <s:element name="GetSoursEmp">
         <s:complexType />
       </s:element>
-      <s:element name="GetSoursResponse">
+      <s:element name="GetSoursEmpResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetSoursResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoursEmpResult" type="tns:ArrayOfAnyType" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Get">
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSoursDep">
         <s:complexType />
       </s:element>
-      <s:element name="GetResponse">
+      <s:element name="GetSoursDepResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoursDepResult" type="tns:ArrayOfAnyType" />
           </s:sequence>
         </s:complexType>
+      </s:element>
+      <s:element name="GetEmpAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="e" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Employee">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ID">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Salary" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DepartmentId" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Department" type="tns:Department" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Department">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ID">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetEmpAddResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDepAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepAddResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFormDAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="depName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormDAddResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFormELoad">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfDepartment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFormELoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormELoadResult" type="tns:ArrayOfDepartment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormEAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nameE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ageE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salaryE" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="comboBoxDepID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormEAddResponse">
+        <s:complexType />
       </s:element>
     </s:schema>
   </wsdl:types>
@@ -40,30 +130,80 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="GetSoursSoapIn">
-    <wsdl:part name="parameters" element="tns:GetSours" />
+  <wsdl:message name="GetSoursEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSoursEmp" />
   </wsdl:message>
-  <wsdl:message name="GetSoursSoapOut">
-    <wsdl:part name="parameters" element="tns:GetSoursResponse" />
+  <wsdl:message name="GetSoursEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSoursEmpResponse" />
   </wsdl:message>
-  <wsdl:message name="GetSoapIn">
-    <wsdl:part name="parameters" element="tns:Get" />
+  <wsdl:message name="GetSoursDepSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSoursDep" />
   </wsdl:message>
-  <wsdl:message name="GetSoapOut">
-    <wsdl:part name="parameters" element="tns:GetResponse" />
+  <wsdl:message name="GetSoursDepSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSoursDepResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmpAdd" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmpAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepAdd" />
+  </wsdl:message>
+  <wsdl:message name="GetDepAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormDAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormDAdd" />
+  </wsdl:message>
+  <wsdl:message name="GetFormDAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormDAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormELoadSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormELoad" />
+  </wsdl:message>
+  <wsdl:message name="GetFormELoadSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormELoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormEAddSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormEAdd" />
+  </wsdl:message>
+  <wsdl:message name="GetFormEAddSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormEAddResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceAccessSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetSours">
-      <wsdl:input message="tns:GetSoursSoapIn" />
-      <wsdl:output message="tns:GetSoursSoapOut" />
+    <wsdl:operation name="GetSoursEmp">
+      <wsdl:input message="tns:GetSoursEmpSoapIn" />
+      <wsdl:output message="tns:GetSoursEmpSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Get">
-      <wsdl:input message="tns:GetSoapIn" />
-      <wsdl:output message="tns:GetSoapOut" />
+    <wsdl:operation name="GetSoursDep">
+      <wsdl:input message="tns:GetSoursDepSoapIn" />
+      <wsdl:output message="tns:GetSoursDepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpAdd">
+      <wsdl:input message="tns:GetEmpAddSoapIn" />
+      <wsdl:output message="tns:GetEmpAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepAdd">
+      <wsdl:input message="tns:GetDepAddSoapIn" />
+      <wsdl:output message="tns:GetDepAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormDAdd">
+      <wsdl:input message="tns:GetFormDAddSoapIn" />
+      <wsdl:output message="tns:GetFormDAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormELoad">
+      <wsdl:input message="tns:GetFormELoadSoapIn" />
+      <wsdl:output message="tns:GetFormELoadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormEAdd">
+      <wsdl:input message="tns:GetFormEAddSoapIn" />
+      <wsdl:output message="tns:GetFormEAddSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceAccessSoap" type="tns:WebServiceAccessSoap">
@@ -77,8 +217,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSours">
-      <soap:operation soapAction="http://tempuri.org/GetSours" style="document" />
+    <wsdl:operation name="GetSoursEmp">
+      <soap:operation soapAction="http://tempuri.org/GetSoursEmp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -86,8 +226,53 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get">
-      <soap:operation soapAction="http://tempuri.org/Get" style="document" />
+    <wsdl:operation name="GetSoursDep">
+      <soap:operation soapAction="http://tempuri.org/GetSoursDep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpAdd">
+      <soap:operation soapAction="http://tempuri.org/GetEmpAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepAdd">
+      <soap:operation soapAction="http://tempuri.org/GetDepAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormDAdd">
+      <soap:operation soapAction="http://tempuri.org/GetFormDAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormELoad">
+      <soap:operation soapAction="http://tempuri.org/GetFormELoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormEAdd">
+      <soap:operation soapAction="http://tempuri.org/GetFormEAdd" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -107,8 +292,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSours">
-      <soap12:operation soapAction="http://tempuri.org/GetSours" style="document" />
+    <wsdl:operation name="GetSoursEmp">
+      <soap12:operation soapAction="http://tempuri.org/GetSoursEmp" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -116,8 +301,53 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get">
-      <soap12:operation soapAction="http://tempuri.org/Get" style="document" />
+    <wsdl:operation name="GetSoursDep">
+      <soap12:operation soapAction="http://tempuri.org/GetSoursDep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpAdd">
+      <soap12:operation soapAction="http://tempuri.org/GetEmpAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepAdd">
+      <soap12:operation soapAction="http://tempuri.org/GetDepAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormDAdd">
+      <soap12:operation soapAction="http://tempuri.org/GetFormDAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormELoad">
+      <soap12:operation soapAction="http://tempuri.org/GetFormELoad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormEAdd">
+      <soap12:operation soapAction="http://tempuri.org/GetFormEAdd" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

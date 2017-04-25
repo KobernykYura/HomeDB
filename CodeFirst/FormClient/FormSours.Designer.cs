@@ -34,7 +34,7 @@
             this.Add_employee = new System.Windows.Forms.Button();
             this.dataGridDepartments = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Add_department = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDepartments)).BeginInit();
@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.Controls.Add(this.Add_employee, 8, 1);
             this.tableLayoutPanel1.Controls.Add(this.dataGridDepartments, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 7, 6);
+            this.tableLayoutPanel1.Controls.Add(this.Add_department, 7, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,10 +79,10 @@
             this.dataGridEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridEmployee, 7);
             this.dataGridEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridEmployee.Location = new System.Drawing.Point(123, 3);
+            this.dataGridEmployee.Location = new System.Drawing.Point(124, 3);
             this.dataGridEmployee.Name = "dataGridEmployee";
             this.tableLayoutPanel1.SetRowSpan(this.dataGridEmployee, 5);
-            this.dataGridEmployee.Size = new System.Drawing.Size(834, 199);
+            this.dataGridEmployee.Size = new System.Drawing.Size(841, 199);
             this.dataGridEmployee.TabIndex = 0;
             // 
             // label1
@@ -97,7 +97,7 @@
             // Add_employee
             // 
             this.Add_employee.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Add_employee.Location = new System.Drawing.Point(963, 44);
+            this.Add_employee.Location = new System.Drawing.Point(971, 44);
             this.Add_employee.Name = "Add_employee";
             this.tableLayoutPanel1.SetRowSpan(this.Add_employee, 3);
             this.Add_employee.Size = new System.Drawing.Size(75, 117);
@@ -111,31 +111,31 @@
             this.dataGridDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridDepartments, 5);
             this.dataGridDepartments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridDepartments.Location = new System.Drawing.Point(243, 208);
+            this.dataGridDepartments.Location = new System.Drawing.Point(245, 208);
             this.dataGridDepartments.Name = "dataGridDepartments";
             this.tableLayoutPanel1.SetRowSpan(this.dataGridDepartments, 3);
-            this.dataGridDepartments.Size = new System.Drawing.Size(594, 117);
+            this.dataGridDepartments.Size = new System.Drawing.Size(599, 117);
             this.dataGridDepartments.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 246);
+            this.label2.Location = new System.Drawing.Point(124, 246);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Departments List:";
             // 
-            // button1
+            // Add_department
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Location = new System.Drawing.Point(843, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Add_department.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Add_department.Location = new System.Drawing.Point(850, 249);
+            this.Add_department.Name = "Add_department";
+            this.Add_department.Size = new System.Drawing.Size(75, 35);
+            this.Add_department.TabIndex = 5;
+            this.Add_department.Text = "Add";
+            this.Add_department.UseVisualStyleBackColor = true;
+            this.Add_department.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormSours
             // 
@@ -162,7 +162,7 @@
         private System.Windows.Forms.Button Add_employee;
         private System.Windows.Forms.DataGridView dataGridDepartments;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Add_department;
     }
 }
 

@@ -31,36 +31,37 @@ namespace WebService
         }
 
         [WebMethod]
-        public void GetSours(DataGridView ee, DataGridView d)
+        public BindingSource GetSoursEmp()
+        {
+            contrEmp = new EmpControl();
+            return contrEmp.GetSource();
+        }
+
+        [WebMethod]
+        public BindingSource GetSoursDep()
         {
             contrDep = new DepControl();
-            contrEmp = new EmpControl();
-            ee.DataSource = contrEmp.GetSource();
-            d.DataSource = contrDep.GetSource();
+            return contrDep.GetSource();
         }
 
         [WebMethod]
-        public void GetEmpAdd(DataGridView e)
+        public void GetEmpAdd(Employee e)
         {
-            //contrEmp.Insert(e.empl);
-            //e.Refresh();
+            contrEmp.Insert(e);
         }
         [WebMethod]
-        public void GetDepAdd(DataGridView d)
+        public void GetDepAdd(Department d)
         {
-            //contrDep.Insert(d.depar);
-            //dataGridDep.Refresh();
+            contrDep.Insert(d);
         }
 
         [WebMethod]
-        public void GetFormDAdd(TextBox name)
+        public void GetFormDAdd(string depName)
         {
-            var depName = name.Text.Trim();
-
             if (depName == String.Empty)
             {
                 MessageBox.Show("Введите название департамента!");
-                name.Focus();
+                //name.Focus();
                 return;
             }
 
@@ -78,53 +79,49 @@ namespace WebService
         }
 
         [WebMethod]
-        public void GetFormELoad(ComboBox comboBoxDepID)
+        public List<Department> GetFormELoad()
         {
             var deps = new DepControl().GetList();
-
-            // Заполняем список департаментов и привязываем поля
-            comboBoxDepID.DataSource = deps;
-            comboBoxDepID.DisplayMember = "Name";
-            comboBoxDepID.ValueMember = "Id";
+            return deps;
         }
 
         [WebMethod]
-        public void GetFormEAdd(TextBox nameE, TextBox ageE, TextBox salaryE , ComboBox comboBoxDepID)
+        public void GetFormEAdd(string nameE, string ageE, string salaryE , int comboBoxDepID)
         {
             int age = 0;
             decimal salary = 0;
             // Имя
-            var name = nameE.Text.Trim();
-            if (name == String.Empty)
+            //var name = textBoxName.Text.Trim();
+            if (nameE == String.Empty)
             {
                 MessageBox.Show("Введите Имя сотрудника!");
-                nameE.Focus();
+                //textBoxName.Focus();
                 return;
             }
 
             // Возраст
-            if (!int.TryParse(ageE.Text.Trim(), out age))
+            if (!int.TryParse(ageE.Trim(), out age))
             {
                 MessageBox.Show("Введите Возраст сотрудника!");
-                ageE.Focus();
+                //textBoxAge.Focus();
                 return;
             }
 
             // Зарплата
-            if (!decimal.TryParse(salaryE.Text.Trim(), out salary))
+            if (!decimal.TryParse(salaryE.Trim(), out salary))
             {
                 MessageBox.Show("Введите Зарплату сотрудника!");
-                salaryE.Focus();
+                //textBoxSalary.Focus();
                 return;
             }
 
             // Департамент
-            int dep = (int)comboBoxDepID.SelectedValue;
+            int dep = comboBoxDepID;
 
             // Если Сотрудник есть, то обновляем
             if (empl != null)
             {
-                empl.Name = name;
+                empl.Name = nameE;
                 empl.Age = age;
                 empl.Salary = salary;
                 empl.DepartmentId = dep;
@@ -132,7 +129,7 @@ namespace WebService
             // Если нет, до добавляем нового
             else
             {
-                empl = new Employee { Name = name, Age = age, Salary = salary, DepartmentId = dep };
+                empl = new Employee { Name = nameE, Age = age, Salary = salary, DepartmentId = dep };
             }
         }
 

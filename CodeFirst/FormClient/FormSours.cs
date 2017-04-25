@@ -22,7 +22,8 @@ namespace FormClient
 
         private void FormSours_Load(object sender, EventArgs e)
         {
-            cl.GetSours(ee: dataGridEmployee, d: dataGridDepartments);
+            dataGridEmployee.DataSource = cl.GetSoursEmp();
+            dataGridDepartments.DataSource = cl.GetSoursDep();
         }
 
         private void Add_employee_Click(object sender, EventArgs e)
@@ -30,9 +31,8 @@ namespace FormClient
             EmployeeAddC emplForm = new EmployeeAddC();
             if (emplForm.ShowDialog(this) == DialogResult.OK)
             {
-                EmpAdd(dataGridEmployee);
-                //contrEmp.Insert(emplForm.empl);
-                //dataGridEmpl.Refresh();
+                cl.GetEmpAdd(emplForm.empl);
+                dataGridEmployee.Refresh();
             }
         }
 
@@ -41,9 +41,8 @@ namespace FormClient
             DepartmentAddC depForm = new DepartmentAddC();
             if (depForm.ShowDialog(this) == DialogResult.OK)
             {
-                DepAdd(dataGridDepartments);
-                //contrDep.Insert(depForm.depar);
-                //dataGridDep.Refresh();
+                cl.GetDepAdd(depForm.depar);
+                dataGridDepartments.Refresh();
             }
         }
     }
