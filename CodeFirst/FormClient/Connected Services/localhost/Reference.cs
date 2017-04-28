@@ -15,82 +15,6 @@ namespace FormClient.localhost {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfAnyType", Namespace="http://tempuri.org/", ItemName="anyType")]
-    [System.SerializableAttribute()]
-    public class ArrayOfAnyType : System.Collections.Generic.List<object> {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ID", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Department))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Employee))]
-    public partial class ID : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Department", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class Department : FormClient.localhost.ID {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class Employee : FormClient.localhost.ID {
@@ -168,6 +92,75 @@ namespace FormClient.localhost {
                 if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
                     this.DepartmentField = value;
                     this.RaisePropertyChanged("Department");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ID", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Department))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FormClient.localhost.Employee))]
+    public partial class ID : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Department", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Department : FormClient.localhost.ID {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -346,12 +339,12 @@ namespace FormClient.localhost {
     public partial class GetSoursEmpResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FormClient.localhost.ArrayOfAnyType GetSoursEmpResult;
+        public FormClient.localhost.Employee[] GetSoursEmpResult;
         
         public GetSoursEmpResponseBody() {
         }
         
-        public GetSoursEmpResponseBody(FormClient.localhost.ArrayOfAnyType GetSoursEmpResult) {
+        public GetSoursEmpResponseBody(FormClient.localhost.Employee[] GetSoursEmpResult) {
             this.GetSoursEmpResult = GetSoursEmpResult;
         }
     }
@@ -407,12 +400,12 @@ namespace FormClient.localhost {
     public partial class GetSoursDepResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FormClient.localhost.ArrayOfAnyType GetSoursDepResult;
+        public FormClient.localhost.Department[] GetSoursDepResult;
         
         public GetSoursDepResponseBody() {
         }
         
-        public GetSoursDepResponseBody(FormClient.localhost.ArrayOfAnyType GetSoursDepResult) {
+        public GetSoursDepResponseBody(FormClient.localhost.Department[] GetSoursDepResult) {
             this.GetSoursDepResult = GetSoursDepResult;
         }
     }
@@ -593,10 +586,17 @@ namespace FormClient.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class GetFormDAddResponseBody {
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FormClient.localhost.Department GetFormDAddResult;
+        
         public GetFormDAddResponseBody() {
+        }
+        
+        public GetFormDAddResponseBody(FormClient.localhost.Department GetFormDAddResult) {
+            this.GetFormDAddResult = GetFormDAddResult;
         }
     }
     
@@ -727,10 +727,17 @@ namespace FormClient.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class GetFormEAddResponseBody {
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FormClient.localhost.Employee GetFormEAddResult;
+        
         public GetFormEAddResponseBody() {
+        }
+        
+        public GetFormEAddResponseBody(FormClient.localhost.Employee GetFormEAddResult) {
+            this.GetFormEAddResult = GetFormEAddResult;
         }
     }
     
@@ -789,7 +796,7 @@ namespace FormClient.localhost {
             return base.Channel.GetSoursEmp(request);
         }
         
-        public FormClient.localhost.ArrayOfAnyType GetSoursEmp() {
+        public FormClient.localhost.Employee[] GetSoursEmp() {
             FormClient.localhost.GetSoursEmpRequest inValue = new FormClient.localhost.GetSoursEmpRequest();
             inValue.Body = new FormClient.localhost.GetSoursEmpRequestBody();
             FormClient.localhost.GetSoursEmpResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursEmp(inValue);
@@ -812,7 +819,7 @@ namespace FormClient.localhost {
             return base.Channel.GetSoursDep(request);
         }
         
-        public FormClient.localhost.ArrayOfAnyType GetSoursDep() {
+        public FormClient.localhost.Department[] GetSoursDep() {
             FormClient.localhost.GetSoursDepRequest inValue = new FormClient.localhost.GetSoursDepRequest();
             inValue.Body = new FormClient.localhost.GetSoursDepRequestBody();
             FormClient.localhost.GetSoursDepResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetSoursDep(inValue);
@@ -883,11 +890,12 @@ namespace FormClient.localhost {
             return base.Channel.GetFormDAdd(request);
         }
         
-        public void GetFormDAdd(string depName) {
+        public FormClient.localhost.Department GetFormDAdd(string depName) {
             FormClient.localhost.GetFormDAddRequest inValue = new FormClient.localhost.GetFormDAddRequest();
             inValue.Body = new FormClient.localhost.GetFormDAddRequestBody();
             inValue.Body.depName = depName;
             FormClient.localhost.GetFormDAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormDAdd(inValue);
+            return retVal.Body.GetFormDAddResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -930,7 +938,7 @@ namespace FormClient.localhost {
             return base.Channel.GetFormEAdd(request);
         }
         
-        public void GetFormEAdd(string nameE, string ageE, string salaryE, int comboBoxDepID) {
+        public FormClient.localhost.Employee GetFormEAdd(string nameE, string ageE, string salaryE, int comboBoxDepID) {
             FormClient.localhost.GetFormEAddRequest inValue = new FormClient.localhost.GetFormEAddRequest();
             inValue.Body = new FormClient.localhost.GetFormEAddRequestBody();
             inValue.Body.nameE = nameE;
@@ -938,6 +946,7 @@ namespace FormClient.localhost {
             inValue.Body.salaryE = salaryE;
             inValue.Body.comboBoxDepID = comboBoxDepID;
             FormClient.localhost.GetFormEAddResponse retVal = ((FormClient.localhost.WebServiceAccessSoap)(this)).GetFormEAdd(inValue);
+            return retVal.Body.GetFormEAddResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

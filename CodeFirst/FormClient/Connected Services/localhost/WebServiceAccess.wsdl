@@ -18,32 +18,15 @@
       <s:element name="GetSoursEmpResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetSoursEmpResult" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoursEmpResult" type="tns:ArrayOfEmployee" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAnyType">
+      <s:complexType name="ArrayOfEmployee">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetSoursDep">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetSoursDepResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetSoursDepResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetEmpAdd">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="e" type="tns:Employee" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:complexType name="Employee">
         <s:complexContent mixed="false">
           <s:extension base="tns:ID">
@@ -71,6 +54,28 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
+      <s:element name="GetSoursDep">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSoursDepResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoursDepResult" type="tns:ArrayOfDepartment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDepartment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmpAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="e" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetEmpAddResponse">
         <s:complexType />
       </s:element>
@@ -92,16 +97,15 @@
         </s:complexType>
       </s:element>
       <s:element name="GetFormDAddResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormDAddResult" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetFormELoad">
         <s:complexType />
       </s:element>
-      <s:complexType name="ArrayOfDepartment">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetFormELoadResponse">
         <s:complexType>
           <s:sequence>
@@ -120,7 +124,11 @@
         </s:complexType>
       </s:element>
       <s:element name="GetFormEAddResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormEAddResult" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
     </s:schema>
   </wsdl:types>

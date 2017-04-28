@@ -10,7 +10,7 @@ namespace WebService.DataBase
     {
         public Data() : base("name=Data")
         {
-            Database.SetInitializer(new StructureContextInitializer());
+            //Database.SetInitializer(new StructureContextInitializer());
         }
 
         public DbSet<Department> Departments { get; set; }

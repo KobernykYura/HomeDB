@@ -34,6 +34,7 @@ namespace FormClient
                 cl.GetEmpAdd(emplForm.empl);
                 dataGridEmployee.Refresh();
             }
+            dataGridEmployee.DataSource = cl.GetSoursEmp();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace FormClient
                 cl.GetDepAdd(depForm.depar);
                 dataGridDepartments.Refresh();
             }
+            dataGridDepartments.DataSource = cl.GetSoursDep();
         }
     }
 }

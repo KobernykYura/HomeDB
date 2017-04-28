@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace HomeEFCodeFirst.Controls
 {
-    abstract class BaseControl<T>
+    public abstract class BaseControl<T>
     {
         protected Data dbAll;
         protected BindingSource source;

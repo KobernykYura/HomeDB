@@ -24,6 +24,7 @@ namespace WebService
         public Department depar;
         public Employee empl;
 
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -31,49 +32,53 @@ namespace WebService
         }
 
         [WebMethod]
-        public BindingSource GetSoursEmp()
+        public List<Employee> GetSoursEmp()
         {
             contrEmp = new EmpControl();
-            return contrEmp.GetSource();
+            return contrEmp.GetList();
         }
 
         [WebMethod]
-        public BindingSource GetSoursDep()
+        public List<Department> GetSoursDep()
         {
             contrDep = new DepControl();
-            return contrDep.GetSource();
+            return contrDep.GetList();
         }
 
         [WebMethod]
         public void GetEmpAdd(Employee e)
         {
+            contrEmp = new EmpControl();
             contrEmp.Insert(e);
         }
         [WebMethod]
         public void GetDepAdd(Department d)
         {
+            contrDep = new DepControl();
             contrDep.Insert(d);
         }
 
         [WebMethod]
-        public void GetFormDAdd(string depName)
+        public Department GetFormDAdd(string depName)
         {
+            //depar = new Department();
             if (depName == String.Empty)
             {
                 MessageBox.Show("Введите название департамента!");
                 //name.Focus();
-                return;
+                return depar;
             }
 
             // Если Департамент есть, то обновляем его
             if (depar != null)
             {
                 depar.Name = depName;
+                return depar;
             }
             // Если департамента нет, то добавляем новый
             else
             {
-                depar = new Department { Name = depName };
+                return depar = new Department { Name = depName };
             }
             
         }
@@ -86,7 +91,7 @@ namespace WebService
         }
 
         [WebMethod]
-        public void GetFormEAdd(string nameE, string ageE, string salaryE , int comboBoxDepID)
+        public Employee GetFormEAdd(string nameE, string ageE, string salaryE , int comboBoxDepID)
         {
             int age = 0;
             decimal salary = 0;
@@ -96,7 +101,7 @@ namespace WebService
             {
                 MessageBox.Show("Введите Имя сотрудника!");
                 //textBoxName.Focus();
-                return;
+                return empl;
             }
 
             // Возраст
@@ -104,7 +109,7 @@ namespace WebService
             {
                 MessageBox.Show("Введите Возраст сотрудника!");
                 //textBoxAge.Focus();
-                return;
+                return empl;
             }
 
             // Зарплата
@@ -112,7 +117,7 @@ namespace WebService
             {
                 MessageBox.Show("Введите Зарплату сотрудника!");
                 //textBoxSalary.Focus();
-                return;
+                return empl;
             }
 
             // Департамент
@@ -125,11 +130,12 @@ namespace WebService
                 empl.Age = age;
                 empl.Salary = salary;
                 empl.DepartmentId = dep;
+                return empl;
             }
             // Если нет, до добавляем нового
             else
             {
-                empl = new Employee { Name = nameE, Age = age, Salary = salary, DepartmentId = dep };
+                return empl = new Employee { Name = nameE, Age = age, Salary = salary, DepartmentId = dep };
             }
         }
 

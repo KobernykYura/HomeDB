@@ -22,12 +22,13 @@ namespace WebService.Items
         [Browsable(false)]
         public int? DepartmentId { get; set; }
 
+        [NotMapped]
+        [DisplayName("Департамент")]
+        public string DepartmentName => this?.Department?.Name;
+
         [Browsable(false)]
         [ForeignKey("DepartmentId")]
         public Department Department { get; set; }
 
-        [NotMapped]
-        [DisplayName("Департамент")]
-        public string DepartmentName => this?.Department?.Name;
     }
 }

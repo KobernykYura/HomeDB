@@ -93,10 +93,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Connected Services\localhost\FormClient.localhost.ArrayOfAnyType.datasource">
+    <None Include="Connected Services\localhost\FormClient.localhost.Department.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\localhost\FormClient.localhost.Department.datasource">
+    <None Include="Connected Services\localhost\FormClient.localhost.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\localhost\FormClient.localhost.GetDepAddResponse.datasource">

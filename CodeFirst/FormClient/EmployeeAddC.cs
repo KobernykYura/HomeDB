@@ -37,7 +37,7 @@ namespace FormClient
             var age = textBoxAge.Text.Trim();
             var ID = (int)comboBox1.SelectedValue;
             var sal = textBoxSalary.Text.Trim();
-            cl.GetFormEAdd(nameE: name, ageE: age, salaryE: sal, comboBoxDepID: ID);
+            empl = cl.GetFormEAdd(nameE: name, ageE: age, salaryE: sal, comboBoxDepID: ID);
 
             DialogResult = DialogResult.OK;
 
